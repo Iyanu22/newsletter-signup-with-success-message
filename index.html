@@ -37,8 +37,11 @@
   <li>Measuring to ensure updates are a success</li>
   <li>And much more!</li>
 </ul>
-<form action="index.html" method="post">
+<form action="index.html" method="post" novalidate>
+  <div class="label-row">
   <label for="email" class="email">Email address</label>
+  <span class="error" id="email-error" aria-live="polite">Valid email required</span>
+  </div>
   <input type="email" name="email" id="email" placeholder="email@company.com" required>
   <button type="submit" class="submit">Subscribe to monthly newsletter</button>
 </form>
@@ -48,13 +51,13 @@
   <!-- Sign-up form end -->
 
   <!-- Success message start -->
-<!-- 
-  Thanks for subscribing!
 
-  A confirmation email has been sent to ash@loremcompany.com. 
-  Please open it and click the button inside to confirm your subscription.
+ <h2> Thanks for subscribing!</h2>
 
-  Dismiss message -->
+  <p>A confirmation email has been sent to <strong id="success-email">ash@loremcompany.com</strong>. 
+  Please open it and click the button inside to confirm your subscription.</p>
+
+  <button  type="button" id="dismiss">Dismiss message</button>
 
   <!-- Success message end -->
   

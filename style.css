@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 @font-face {
   font-family: "roboto";
   src: url("./font/Roboto-Regular.ttf") format("truetype");
@@ -72,6 +76,10 @@ body {
   flex-shrink: 0;
   background: url("./assets/images/icon-list.svg");
 }
+.container .text-container .label-row {
+  display: flex;
+  justify-content: space-between;
+}
 .container .text-container .email {
   font-size: 0.75rem;
   font-weight: 700;
@@ -100,6 +108,15 @@ body {
 }
 .container .text-container .submit .submit:hover {
   background-color: hsl(4, 100%, 67%);
+}
+.container .text-container input.invalid {
+  border-color: hsl(4, 100%, 67%);
+  background: hsla(4, 100%, 67%, 0.15);
+  color: hsl(4, 100%, 67%);
+}
+.container .text-container .error {
+  color: hsl(4, 100%, 67%);
+  font-size: 0.75rem;
 }
 
 @media (min-width: 48rem) {
