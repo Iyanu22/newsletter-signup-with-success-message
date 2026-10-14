@@ -30,6 +30,7 @@ body {
 }
 
 .container {
+  background-color: hsl(0, 0%, 100%);
   max-width: 23.4375rem;
   display: flex;
   flex-direction: column;
@@ -125,36 +126,62 @@ body {
 }
 
 .success {
-  max-width: 23.4375rem;
-  min-height: 100vh;
-  margin-inline: auto;
-  padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  min-height: 100vh;
+  padding: 6.25rem 1.5rem 1.5rem;
+  background-color: hsl(0, 0%, 100%);
+}
+.success .success-content {
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
+}
+.success img {
+  display: block;
+  width: 3.5rem;
+  height: 3.5rem;
 }
 .success h2 {
   font-size: 2.5rem;
+  font-weight: 700;
   line-height: 1;
+  color: hsl(234, 29%, 20%);
 }
 .success p {
+  font-size: 1rem;
   line-height: 1.5;
+  color: hsl(234, 29%, 20%);
 }
 .success strong {
   font-weight: 700;
 }
 .success button {
   width: 100%;
+  padding: 1rem;
   border: none;
   border-radius: 0.5rem;
   background-color: hsl(234, 29%, 20%);
   color: hsl(0, 0%, 100%);
-  padding: 1rem;
+  font-family: inherit;
   font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  cursor: pointer;
+}
+.success button:hover {
+  background-image: linear-gradient(90deg, hsl(12, 100%, 62%), hsl(344, 100%, 66%));
+}
+.success button:focus-visible {
+  outline: 2px solid hsl(4, 100%, 67%);
+  outline-offset: 2px;
 }
 
 @media (min-width: 48rem) {
+  body {
+    background-color: hsl(235, 18%, 26%);
+  }
   .container {
     max-width: 38rem;
     padding: 2.5rem;
@@ -170,8 +197,19 @@ body {
   }
   .success {
     min-height: auto;
+    max-width: 31.5rem;
+    margin: 2rem auto;
+    padding: 4rem;
     border-radius: 2.25rem;
-    padding: 2.5rem;
+    justify-content: flex-start;
+    gap: 2.5rem;
+  }
+  .success img {
+    width: 4rem;
+    height: 4rem;
+  }
+  .success h2 {
+    font-size: 3.5rem;
   }
 }
 @media (min-width: 90rem) {
