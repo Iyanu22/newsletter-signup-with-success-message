@@ -1,22 +1,26 @@
-# Frontend Mentor - Newsletter sign-up form with success message
+# Frontend Mentor - Newsletter sign-up form with success message solution
 
-![Design preview for the Newsletter sign-up form with success message coding challenge](./preview.jpg)
+This is a solution to the [Newsletter sign-up form with success message challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/newsletter-signup-form-with-success-message-3FC1AZbNrv). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Welcome! 👋
+## Table of contents
 
-Thanks for checking out this front-end coding challenge.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+  - [AI Collaboration](#ai-collaboration)
+- [Author](#author)
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+## Overview
 
-**To do this challenge, you need a basic understanding of HTML, CSS and JavaScript.**
+### The challenge
 
-## The challenge
-
-Your challenge is to build out this newsletter form and get it looking as close to the design as possible.
-
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
-
-Your users should be able to:
+Users should be able to:
 
 - Add their email and submit the form
 - See a success message with their email after successfully submitting the form
@@ -26,87 +30,108 @@ Your users should be able to:
 - View the optimal layout for the interface depending on their device's screen size
 - See hover and focus states for all interactive elements on the page
 
-### Want some support on the challenge? 
+### Screenshot
 
-[Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
+![](./assets/images/Newsletter%20sign-up%20form-with-success-message.png)
 
-## Where to find everything
+<!-- Add a screenshot of your finished solution and update the path above. -->
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design. 
+### Links
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. 
+- Solution URL: [https://github.com/Iyanu22/newsletter-signup-with-success-message]
+- Live Site URL: [https://iyanu22.github.io/newsletter-signup-with-success-message/]
 
-If you would like the Figma design file to gain experience using professional tools and build more accurate projects faster, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+## My process
 
-All the required assets for this project are in the `/assets` folder. The images are already exported for the correct screen size and optimized.
+### Built with
 
-We also include variable and static font files for the required fonts for this project. You can choose to either link to Google Fonts or use the local font files to host the fonts yourself. Note that we've removed the static font files for the font weights that aren't needed for this project.
+- Semantic HTML5 markup (`<picture>`, `<section>`, `<form>`, `<footer>`)
+- SCSS (Sass), compiled to plain CSS, with variables for colours and breakpoints
+- Flexbox and CSS Grid
+- Mobile-first workflow with `min-width` media queries
+- Responsive images with the `<picture>` element (mobile, tablet, desktop illustrations)
+- Vanilla JavaScript for form validation and the success state
+- Custom `@font-face` loading for Roboto
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+### What I learned
 
-## Using AI coding assistants
+**Layout and sizing**
 
-We've included two files to help you if you're using AI coding assistants (like Claude, GitHub Copilot, Cursor, etc.) while working on this challenge:
+- A child's `width: 100%` is relative to its parent, so to stop an image filling the screen you constrain the *container* with `max-width`, not the image. `max-width` is better than `width` because it shrinks on narrow screens instead of causing horizontal scroll.
+- Setting `width: 100%; height: auto` on an image lets the browser keep the aspect ratio. Width and height are not inherited, so the `<img>` needs its own rule even when its wrapper is sized.
+- Centring: `margin-inline: auto` centres horizontally in a normal block parent. For horizontal and vertical centring, `display: grid; place-items: center` on a parent with `min-height: 100vh` is simpler.
+- A unitless `line-height` (Figma's 100% becomes `1`) is safer than `%` or `em`, because children recompute it from their own font size instead of inheriting a fixed pixel value.
 
-- `AGENTS.md` - Contains detailed instructions for AI assistants on how to help you with this challenge. It's tailored to this challenge's difficulty level, so the AI will provide guidance appropriate to your learning stage—offering more support for beginner challenges and encouraging more independence on advanced ones.
-- `CLAUDE.md` - A pointer file that directs Claude-based tools to the AGENTS.md instructions.
+**Responsive images**
 
-**How to use them:** You don't need to do anything! These files are automatically detected by most AI coding tools. The AI will read them and adjust its behavior to be a better learning partner—guiding you toward solutions rather than just giving you the answers.
+- CSS cannot swap an `<img>`'s `src`; a `background` on an `<img>` just paints behind it. Use `<picture>` with `<source media="...">` elements instead.
+- `<source>` only affects an `<img>` that is a **direct child of the same `<picture>`**. My first attempt wrapped the whole card in `<picture>`, so the sources were ignored.
+- Sources are checked top to bottom and the first match wins, so the widest breakpoint goes first.
 
-**Note:** These files are designed to help you *learn*, not to do the work for you. The AI is instructed to ask questions, give hints, and explain concepts rather than writing complete solutions.
+**Styling details**
 
-## Building your project
+- Custom list markers: `list-style: none` plus a `li::before` pseudo-element with a background image gives full control over size and alignment. `flex-shrink: 0` stops the icon squashing when text wraps.
+- `gap` on a flex or grid container only adds space *between* items, so there is no leftover space after the last one.
+- Buttons can't transition between a colour and a gradient, so the gradient is applied with `background-image`, which paints over `background-color`.
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+**Form validation in JavaScript**
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+- `novalidate` on the form turns off the browser's popup bubbles so I can show my own messages, while `required` and `type="email"` still help with mobile keyboards and accessibility.
+- Listen for `submit` on the form rather than `click` on the button, so the Enter key is handled too, and call `e.preventDefault()` so the page doesn't reload.
+- Keeping `isValidEmail()` separate from the DOM code makes the check reusable. The same function drives both the error message and the button's "ready" state, so there is a single definition of "valid".
+- Toggling a class (`classList.toggle("ready", condition)`) keeps visual rules in the stylesheet instead of in JS.
+- `aria-live="polite"` on the error span lets screen readers announce validation messages.
+- Code placed outside the submit handler runs once on page load, which caused a `ReferenceError` when I used `email` out there.
 
-## Deploying your project
+```js
+emailInput.addEventListener("input", () => {
+  clearError();
+  submitBtn.classList.toggle("ready", isValidEmail(emailInput.value));
+});
+```
 
-As mentioned above, there are many ways to host your project for free. Our recommended hosts are:
+**The `hidden` attribute vs CSS**
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+- My own `display: flex` on the card overrode the browser's built-in `[hidden]` rule, so `card.hidden = true` did nothing. Adding `[hidden] { display: none !important; }` guarantees hidden elements stay hidden.
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://www.frontendmentor.io/guides/hosting-your-solution).
+**SCSS gotchas**
 
-## Create a custom `README.md`
+- Nesting `.submit:hover` inside `.submit` compiles to `.submit .submit:hover`, which matches nothing. Use `&:hover`.
+- The same mistake with `#email:focus` nested in `#email`.
+- Nesting `.success` inside `.container` meant its styles never applied, because the success section sits outside `.container` in the HTML.
+- The browser only reads `style.css`. If the Sass isn't recompiled, new rules don't exist, which looked like a JS bug when it wasn't. Never edit the compiled CSS by hand.
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+**Debugging**
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+- `Cannot set properties of null` means a `querySelector` found nothing. The cause was an element commented out in the HTML, not a typo in the script.
+- Comparing the line numbers in the console error with the file in DevTools > Sources shows whether the browser is running a stale copy.
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+### Continued development
 
-## Submitting your solution
+- Add a `<main>` landmark and centre the card there so the footer attribution sits below it instead of being centred with the card.
+- Finish the mobile success layout (full-height screen with the button pinned to the bottom).
+- Match the exact Figma gradient values and hover/focus states for every interactive element.
+- Convert the Roboto fonts to `woff2` for smaller downloads, and make the preload paths match the `@font-face` paths.
+- Use a more thorough accessibility pass: focus management when the success view appears, and keyboard testing of the dismiss button.
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://www.frontendmentor.io/guides/how-to-submit-solutions) for tips on how to do this.
+### Useful resources
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+- [MDN: The Picture element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture) - how `<source>` selection works for responsive images.
+- [MDN: `hidden` global attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/hidden) - and why author CSS can override it.
+- [Sass documentation: the parent selector `&`](https://sass-lang.com/documentation/style-rules/parent-selector/) - fixing nested hover and focus rules.
+- [MDN: Constraint validation](https://developer.mozilla.org/en-US/docs/Web/HTML/Constraint_validation) - what `novalidate` does and doesn't turn off.
 
-## Sharing your solution
+### AI Collaboration
 
-There are multiple places you can share your solution:
+I used Claude as a tutor and debugging partner throughout this project, mainly for:
 
-1. Share your solution page in the **#finished-projects** channel of our [community](https://www.frontendmentor.io/community). 
-2. Share on [X (formerly Twitter)](https://x.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in your post. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on [LinkedIn](https://www.linkedin.com/company/frontend-mentor/).
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
+- **Explaining the "why"**: why an image fills the screen, why `<source>` needs a direct `<img>` child, why `[hidden]` gets overridden, and how percentages and `line-height` resolve.
+- **Debugging**: the `null` error on `#email-error`, the stale compiled CSS, and the SCSS nesting mistakes that stopped rules from applying.
+- **Structuring the JavaScript**: breaking validation into small steps (disable native validation, handle `submit`, validate, show or clear the error, then the success view).
+- **Commit messages**: writing clear, imperative messages for each stage.
 
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
+What worked well: asking follow-up questions until I understood the reason behind a fix, then applying it myself. What needed care: some suggested snippets assumed my HTML matched earlier versions (for example, the success section wrapper), so I had to check IDs and nesting against my own files. Pasting my actual code and console errors made the advice far more accurate.
 
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
+## Author
 
-## Got feedback for us?
-
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
-
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
-
-**Have fun building!** 🚀
+- Frontend Mentor - [@Iyanu22](https://www.frontendmentor.io/profile/Iyanu22)
