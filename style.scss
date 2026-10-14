@@ -100,6 +100,11 @@ h1{
     border: 1px solid $grey;
     border-radius: 0.5rem;
     margin-bottom: 1.5rem;
+
+      &:focus {
+    outline: none;
+    border-color: $blue-800;
+  }
    }
    .submit{
     width: 100%;
@@ -112,10 +117,12 @@ h1{
     font-weight: 400;
     line-height: 1.5;
     margin-bottom: 2.75rem;
+    cursor: pointer;
 
-    .submit:hover{
-        background-color: $red;
-    }
+   &:hover,
+  &.ready {
+    background-image: linear-gradient(90deg, hsl(12, 100%, 62%), hsl(344, 100%, 66%));
+  }
    }
    input.invalid {
   border-color: $red;
@@ -126,6 +133,32 @@ h1{
    
 }
 }
+.success {
+  max-width: 23.4375rem;
+  min-height: 100vh;
+  margin-inline: auto;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+
+  h2 { font-size: 2.5rem; line-height: 1; }
+  p { line-height: 1.5; }
+  strong { font-weight: 700; }
+
+  button {
+    width: 100%;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: $blue-800;
+    color: $white;
+    padding: 1rem;
+    font-size: 1rem;
+  }
+}
+
+
 @media (min-width: $breakpoint-tablet){
     .container{
         max-width: 38rem;
@@ -140,6 +173,11 @@ h1{
     .submit{
         margin-bottom: 2.68rem;
     }
+      .success {
+    min-height: auto;
+    border-radius: 2.25rem;
+    padding: 2.5rem;
+  }
 }
 @media (min-width: $breakpoint-desktop){
     .container{

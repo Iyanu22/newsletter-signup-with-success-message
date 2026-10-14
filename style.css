@@ -94,6 +94,10 @@ body {
   border-radius: 0.5rem;
   margin-bottom: 1.5rem;
 }
+.container .text-container #email:focus {
+  outline: none;
+  border-color: hsl(234, 29%, 20%);
+}
 .container .text-container .submit {
   width: 100%;
   border: none;
@@ -105,9 +109,10 @@ body {
   font-weight: 400;
   line-height: 1.5;
   margin-bottom: 2.75rem;
+  cursor: pointer;
 }
-.container .text-container .submit .submit:hover {
-  background-color: hsl(4, 100%, 67%);
+.container .text-container .submit:hover, .container .text-container .submit.ready {
+  background-image: linear-gradient(90deg, hsl(12, 100%, 62%), hsl(344, 100%, 66%));
 }
 .container .text-container input.invalid {
   border-color: hsl(4, 100%, 67%);
@@ -117,6 +122,36 @@ body {
 .container .text-container .error {
   color: hsl(4, 100%, 67%);
   font-size: 0.75rem;
+}
+
+.success {
+  max-width: 23.4375rem;
+  min-height: 100vh;
+  margin-inline: auto;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.success h2 {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+.success p {
+  line-height: 1.5;
+}
+.success strong {
+  font-weight: 700;
+}
+.success button {
+  width: 100%;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: hsl(234, 29%, 20%);
+  color: hsl(0, 0%, 100%);
+  padding: 1rem;
+  font-size: 1rem;
 }
 
 @media (min-width: 48rem) {
@@ -132,6 +167,11 @@ body {
   }
   .submit {
     margin-bottom: 2.68rem;
+  }
+  .success {
+    min-height: auto;
+    border-radius: 2.25rem;
+    padding: 2.5rem;
   }
 }
 @media (min-width: 90rem) {

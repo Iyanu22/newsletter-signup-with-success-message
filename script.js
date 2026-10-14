@@ -33,10 +33,16 @@ form.addEventListener("submit", (e) => {
   successSection.hidden = false;
 });
 
-emailInput.addEventListener("input", clearError);
+const submitBtn = document.querySelector(".submit");
+
+emailInput.addEventListener("input", () => {
+  clearError();
+  submitBtn.classList.toggle("ready", isValidEmail(emailInput.value));
+});
 
 dismissBtn.addEventListener("click", () => {
   successSection.hidden = true;
   card.hidden = false;
   form.reset();
+   submitBtn.classList.remove("ready"); //
 });
