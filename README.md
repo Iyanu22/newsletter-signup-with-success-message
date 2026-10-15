@@ -38,9 +38,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [https://github.com/Iyanu22/newsletter-signup-with-success-message]
-- Live Site URL: [https://iyanu22.github.io/newsletter-signup-with-success-message/]
-
+- Solution URL: [Solution URL](https://github.com/Iyanu22/newsletter-signup-with-success-message)
+- Live Site URL: [Live URL](https://iyanu22.github.io/newsletter-signup-with-success-message/)
 ## My process
 
 ### Built with
