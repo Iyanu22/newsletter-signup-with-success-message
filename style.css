@@ -29,6 +29,12 @@ body {
   background-color: hsl(0, 0%, 100%);
 }
 
+main {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
 .container {
   background-color: hsl(0, 0%, 100%);
   max-width: 23.4375rem;
@@ -219,6 +225,7 @@ body {
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "first second";
     padding: 2rem;
+    margin: auto;
   }
   .image-container {
     grid-area: second;
