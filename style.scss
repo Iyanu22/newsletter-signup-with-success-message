@@ -210,10 +210,10 @@ h1{
         border: 1px solid $grey;
         margin-inline: auto;
     }
-    h1{
+    .conatiner h1{
        font-size: 3.5rem;
     }
-    .submit{
+    .container .text-container .submit{
         margin-bottom: 2.68rem;
     }
    .success {
@@ -247,13 +247,10 @@ h1{
         grid-area: first;
         // padding: 0 4rem;
     }
-    h1{
+    .container .text-container{
+    h1, p, ul{
         margin-bottom: 2rem;
     }
-    p{
-        margin-bottom: 2rem;
-    }
-    ul{
-        margin-bottom: 2rem;
-    }
+  }
+   
 }

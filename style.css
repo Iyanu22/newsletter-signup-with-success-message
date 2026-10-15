@@ -195,10 +195,10 @@ main {
     border: 1px solid hsl(0, 0%, 58%);
     margin-inline: auto;
   }
-  h1 {
+  .conatiner h1 {
     font-size: 3.5rem;
   }
-  .submit {
+  .container .text-container .submit {
     margin-bottom: 2.68rem;
   }
   .success {
@@ -233,13 +233,7 @@ main {
   .text-container {
     grid-area: first;
   }
-  h1 {
-    margin-bottom: 2rem;
-  }
-  p {
-    margin-bottom: 2rem;
-  }
-  ul {
+  .container .text-container h1, .container .text-container p, .container .text-container ul {
     margin-bottom: 2rem;
   }
 }
