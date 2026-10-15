@@ -1,3 +1,4 @@
+form.noValidate = true; 
 const emailInput = document.querySelector("#email");
 const emailError = document.querySelector("#email-error");
 const form = document.querySelector("form");
@@ -13,11 +14,13 @@ function isValidEmail(value) {
 function showError(message) {
   emailError.textContent = message;
   emailInput.classList.add("invalid");
+  emailInput.setAttribute("aria-invalid", "true");
 }
 
 function clearError() {
   emailError.textContent = "";
   emailInput.classList.remove("invalid");
+  emailInput.removeAttribute("aria-invalid");
 }
 
 form.addEventListener("submit", (e) => {
