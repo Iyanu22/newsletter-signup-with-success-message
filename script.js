@@ -26,9 +26,9 @@ function clearError() {
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const email = emailInput.value.trim();
-
-  if (email === "") return showError("Email required");
-  if (!isValidEmail(email)) return showError("Valid email required");
+  
+  if (email === "") { showError("Email required"); return emailInput.focus(); }
+  if (!isValidEmail(email)) { showError("Valid email required"); return emailInput.focus(); }
 
   clearError();
   successEmail.textContent = email;   // now inside the handler
