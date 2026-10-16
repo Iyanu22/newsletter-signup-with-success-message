@@ -34,7 +34,7 @@ Users should be able to:
 
 ![](./assets/images/Newsletter%20sign-up%20form-with-success-message.png)
 
-<!-- Add a screenshot of your finished solution and update the path above. -->
+
 
 ### Links
 
