@@ -1,4 +1,3 @@
-
 const emailInput = document.querySelector("#email");
 const emailError = document.querySelector("#email-error");
 const form = document.querySelector("form");
@@ -6,6 +5,7 @@ const card = document.querySelector(".container");
 const successSection = document.querySelector("#success");
 const successEmail = document.querySelector("#success-email");
 const dismissBtn = document.querySelector("#dismiss");
+const successTitle = document.querySelector("#success-title");
 
 form.noValidate = true; 
 
@@ -33,9 +33,11 @@ form.addEventListener("submit", (e) => {
   if (!isValidEmail(email)) { showError("Valid email required"); return emailInput.focus(); }
 
   clearError();
+  //submit handler
   successEmail.textContent = email;   // now inside the handler
   card.hidden = true;
   successSection.hidden = false;
+  successTitle.focus();
 });
 
 const submitBtn = document.querySelector(".submit");
@@ -45,9 +47,11 @@ emailInput.addEventListener("input", () => {
   submitBtn.classList.toggle("ready", isValidEmail(emailInput.value));
 });
 
+//dismiss handler
 dismissBtn.addEventListener("click", () => {
   successSection.hidden = true;
   card.hidden = false;
   form.reset();
-   submitBtn.classList.remove("ready"); //
+   submitBtn.classList.remove("ready"); 
+   emailInput.focus();
 });

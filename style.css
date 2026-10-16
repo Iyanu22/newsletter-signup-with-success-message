@@ -217,6 +217,7 @@ main {
   }
   .success h2 {
     font-size: 3.5rem;
+    outline: none;
   }
 }
 @media (min-width: 90rem) {
