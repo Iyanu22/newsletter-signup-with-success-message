@@ -1,4 +1,4 @@
-form.noValidate = true; 
+
 const emailInput = document.querySelector("#email");
 const emailError = document.querySelector("#email-error");
 const form = document.querySelector("form");
@@ -6,6 +6,8 @@ const card = document.querySelector(".container");
 const successSection = document.querySelector("#success");
 const successEmail = document.querySelector("#success-email");
 const dismissBtn = document.querySelector("#dismiss");
+
+form.noValidate = true; 
 
 function isValidEmail(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
@@ -26,7 +28,7 @@ function clearError() {
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const email = emailInput.value.trim();
-  
+
   if (email === "") { showError("Email required"); return emailInput.focus(); }
   if (!isValidEmail(email)) { showError("Valid email required"); return emailInput.focus(); }
 
