@@ -101,8 +101,9 @@ main {
   border-radius: 0.5rem;
   margin-bottom: 1.5rem;
 }
-.container .text-container #email:focus {
-  outline: none;
+.container .text-container #email:focus-visible {
+  outline: 2px solid hsl(234, 29%, 20%);
+  outline-offset: 2px;
   border-color: hsl(234, 29%, 20%);
 }
 .container .text-container .submit {
